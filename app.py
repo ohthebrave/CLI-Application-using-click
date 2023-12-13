@@ -74,10 +74,13 @@ def delete(idx):
         else:
             click.echo(f"No worker found with ID {idx}. Nothing to delete.")
 
-# mycommands.add_command()
+mycommands.add_command(add_worker)
+mycommands.add_command(update)
+mycommands.add_command(list_workers)
+mycommands.add_command(delete)
 
 if __name__ == "__main__":
-    delete()
+    mycommands()
 
 
 
