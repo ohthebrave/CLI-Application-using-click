@@ -6,6 +6,20 @@ from faker import Faker
 
 Base = declarative_base()
 
+class Site(Base):
+    __tablename__ = 'sites'
+
+    id = Column(Integer, primary_key=True)
+    name = Column('name', String)
+
+    worker = relationship('Worker',back_populates='sites')
+
+    def __init__(self,name):
+        self.name = name
+
+    def __repr__(self):
+        return f"{self.id} {self.name}"
+
 class Worker(Base):
     __tablename__ = 'workers'
 
